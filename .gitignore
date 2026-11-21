@@ -1,0 +1,6 @@
+# Godot: archivos temporales y caché
+.godot/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db

@@ -1,0 +1,34 @@
+MISION RESCATE: INUNDACION  -  v4 (Godot 4.2 o superior)
+Serious Game sobre prevencion y gestion del riesgo de inundaciones. Tres niveles.
+
+COMO ABRIRLO
+1. Abre Godot 4 y pulsa "Importar" -> selecciona project.godot.
+2. Espera a que importe sprites y audios (la primera vez tarda un poco) y pulsa F5.
+
+CONTROLES
+- Flechas o WASD: mover | E o Espacio: ayudar / interactuar | Q: usar botiquin (nivel 3)
+- Enter: avanzar (portada, inicio de nivel, siguiente nivel, reintentar)
+- 1 / 2 / 3 en la pantalla de inicio de nivel: saltar a ese nivel
+- M: silenciar / activar el sonido
+
+PORTADA
+- Se muestra al abrir el juego (sprites/portada.png + titulo) y de nuevo al terminar los 3 niveles.
+- Imagen de entrega en alta resolucion: Portada_MisionRescate.png (fuera de esta carpeta).
+- Icono del juego: icon.png
+
+SONIDO  (carpeta audio/, 34 archivos .wav generados para el juego)
+- Musica: tema de portada y un tema distinto por nivel (tenso, oscuro, esperanzador).
+- Ambiente: lluvia, rumor del agua que sube (crece con la inundacion), truenos, pajaros (nivel 3).
+- Efectos: pasos segun el suelo, chapoteo, lodo, chispas, descarga, caida, vidrios, bocina,
+  ladrido, miedo, objetos, tareas, radio, sirena, victoria y derrota.
+- Para cambiar un sonido, reemplaza el .wav con el mismo nombre (formato WAV 16 bits).
+- Volumenes en audio.gd (DB_MUSICA, DB_LLUVIA...). Hay 3 buses: Musica, Efectos y Ambiente.
+
+TEXTOS
+- Las pantallas de inicio, final y la caja de mensajes ajustan solas el tamano de la letra
+  para que el texto nunca se corte (funcion _ajustar en hud.gd).
+
+ARCHIVOS
+- niveles.gd (datos de los niveles) | main.gd (mundo, agua, noche) | game.gd (estado global)
+- audio.gd (sonido) | hud.gd (interfaz, portada, pantallas) | player.gd | persona.gd
+- objeto.gd | interactivo.gd | coche.gd | lluvia.gd
