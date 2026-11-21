@@ -46,7 +46,9 @@ var distancia_max := 0.0
 var orden_inundacion: Array = []      # Vector3(x, y, distancia), de cerca a lejos
 var siguiente := 0
 var frente := -1.0                    # hasta que distancia ha llegado el agua
-
+var audio_iniciado := false
+var audio_lluvia := false
+var audio_agua := false
 # Noche
 var modulado: CanvasModulate
 var luz_jugador: PointLight2D
@@ -92,7 +94,8 @@ func _ready():
 		ll.cantidad = datos["lluvia"]
 		add_child(ll)
 
-	Audio.iniciar_escena(Game.nivel, datos["lluvia"] > 0, datos["agua"] != null)
+	audio_lluvia = datos["lluvia"] > 0
+	audio_agua = datos["agua"] != null
 	avisos = datos["avisos"].duplicate()
 	add_child(Hud.new())
 	if Game.intro_vista:
@@ -417,3 +420,19 @@ func _process(delta):
 
 	if transcurrido >= Game.tiempo_max:
 		Game.perder(datos["fin_tiempo"])
+		
+func _input(event: InputEvent) -> void:
+	if audio_iniciado:
+		return
+
+
+	var interaccion := false
+	if event is InputEventMouseButton and event.pressed:
+		interaccion = true
+	elif event is InputEventScreenTouch and event.pressed:
+			interaccion = true
+	elif event is InputEventKey and event.pressed and not event.echo:
+				interaccion = true
+	if interaccion:
+		audio_iniciado = true
+		Audio.iniciar_escena(Game.nivel, audio_lluvia, audio_agua)
