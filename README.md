@@ -26,4 +26,4 @@ Es un videojuego 2D desarrollado en Godot, cuyo escenario principal está relaci
 ## Links del proyecto
 
  - [Repositorio de Git Hub](https://github.com/JuanCamiloGanan/MisionRescate_Inundacion)
- - [Link de Vercel](https://github.com/matiassingers/awesome-readme)
+ - [Link de Vercel](https://misionrescateinundacion.vercel.app/)
